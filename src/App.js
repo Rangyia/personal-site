@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from './components/nav/NavBar'
+import SideBar from './components/nav/SideBar'
 
 // views
 import { HomeView } from './views'
@@ -31,8 +32,11 @@ export default function App() {
   return (
     <div className="app" style={styles}>
       <div className="container">
-        <NavBar color={(darkMode ? "primary" : "secondary")} onToggle={toggleMode}/>
-        <HomeView />
+        <NavBar color={(darkMode ? "primary" : "secondary")} onToggle={toggleMode} />
+        <div style={{ display: 'flex', alignItems: 'center', verticalAlign: 'middle', height: "100%" }}>
+          <SideBar />
+          <HomeView color={(darkMode ? "primary" : "secondary")} />
+        </div>
       </div>
     </div>
   );
