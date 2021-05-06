@@ -1,0 +1,40 @@
+/* Global */
+body, * {
+    margin: 0;
+    padding: 0;
+}
+
+.app {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    height: 100%;
+    margin: 0 auto;
+}
+
+
+/* Mobile */
+@media (max-width: 600px) {
+    .container {
+        max-width: 100%;
+    }   
+}
+
+/* Tablet */
+@media (min-width: 600px) {
+    .container {
+        max-width: 90%;
+    }  
+}
+
+/* Desktop */
+@media (min-width: 960px) {
+    .container {
+        max-width: 90%;
+    }  
+}
