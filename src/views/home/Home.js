@@ -31,21 +31,17 @@ export default function HomeView(props) {
 
     return (
         <div className={classes.root}>
-            <FormControlLabel
-                control={<Switch checked={checked} onChange={handleChange} />}
-                label="Show"
-            />
             <div className={classes.menuContainer}>
-                <Zoom in={checked} style={{margin: 0, padding: 0}}>
+                <Zoom in={true} style={{margin: 0, padding: 0}}>
                     <Typography className={classes.menuContainer} color={props.color} variant="h1">Frontend</Typography>
                 </Zoom>
-                <Zoom in={checked} style={{ transitionDelay: checked ? '250ms' : '0ms' }}>
+                <Zoom in={true} style={{ transitionDelay: '250ms' }}>
                     <Typography className={classes.menuContainer} color={props.color} variant="h1">Backend</Typography>
                 </Zoom>
-                <Zoom in={checked} style={{ transitionDelay: checked ? '500ms' : '0ms' }}>
+                <Zoom in={true} style={{ transitionDelay: '500ms' }}>
                     <Typography className={classes.menuContainer} color={props.color} variant="h1">Hacking</Typography>
                 </Zoom>
-                <Zoom in={checked} style={{ transitionDelay: checked ? '750ms' : '0ms' }}>
+                <Zoom in={true} style={{ transitionDelay: '750ms' }}>
                     <Typography className={classes.menuContainer} color={props.color} variant="h1">DevOps</Typography>
                 </Zoom>
             </div>

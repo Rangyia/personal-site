@@ -21,29 +21,22 @@ body, * {
     height: 80%;
     display: flex;
     align-items: center;
+    justify-content: space-around;
 
-}
-
-.view-nav {
-    width: 30%;
-}
-
-.view-content {
-    width: 70%;
 }
 
 /* Mobile */
 @media (max-width: 600px) {
     .container {
         max-width: 100%;
-    }   
+    }
 }
 
 /* Tablet */
 @media (min-width: 600px) {
     .container {
         max-width: 90%;
-    }  
+    } 
 }
 
 /* Desktop */
