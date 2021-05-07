@@ -1,0 +1,21 @@
+.side-nav {
+    border-style: solid;
+    border-width: 0px 0px 0px 5px;
+    display: flex column;
+}
+
+.side-nav-item {
+    margin: 100px 0px;
+    cursor: pointer;
+}
+
+.nav-item-link::hover {
+    color: red;
+}
+
+/* Tablet & Mobile */
+@media (max-width: 960px) {
+    .view-nav {
+        display: none;
+    }
+}

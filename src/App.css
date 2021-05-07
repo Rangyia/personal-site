@@ -17,6 +17,20 @@ body, * {
     margin: 0 auto;
 }
 
+.view {
+    height: 80%;
+    display: flex;
+    align-items: center;
+
+}
+
+.view-nav {
+    width: 30%;
+}
+
+.view-content {
+    width: 70%;
+}
 
 /* Mobile */
 @media (max-width: 600px) {

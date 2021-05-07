@@ -8,6 +8,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { grey } from '@material-ui/core/colors';
 import { Sling as Hamburger } from 'hamburger-react'
 import Switch from '@material-ui/core/Switch';
+import Parse from '../../utils/MenuParser'
 // import { GitHub, LinkedIn, Email, Twitter } from '@material-ui/icons';
 
 
@@ -20,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     rootMenu: {
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-around'
+        justifyContent: 'space-around',
     },
     socialIconList: {
         display: 'flex',
@@ -32,6 +33,9 @@ const useStyles = makeStyles((theme) => ({
     },
     menu: {
         display: 'flex'
+    },
+    title: {
+        cursor: 'pointer',
     },
     dropdown: {
         margin: 0,
@@ -74,10 +78,15 @@ export default function NavBar(props) {
         props.onToggle(event.target.checked);
     }
 
+    const handleNavClick = (event) => {
+        const view = Parse("Home");
+        props.selectView(view);
+    }
+
     return (
         <AppBar position="static" className={classes.root}>
             <Toolbar className={classes.rootMenu}>
-                <Typography color={props.color} variant="h5" className={classes.title}>
+                <Typography onClick={handleNavClick} color={props.color} variant="h5" className={classes.title}>
                     Jess Graham
                 </Typography>
                 <div className={classes.menu}>

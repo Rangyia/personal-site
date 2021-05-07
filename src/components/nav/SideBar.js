@@ -1,22 +1,30 @@
 import React from 'react'
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import { List, ListItem } from '@material-ui/core';
+import { List, ListItem, Typography } from '@material-ui/core';
+import './styles.css'
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        background: 'red',
+import Parse from '../../utils/MenuParser'
+
+export default function SideBar(props) {
+
+    const handleNavClick = (event) => {
+        const view = Parse(event.target.innerText);
+        props.selectView(view);
     }
-}));
-
-export default function SideBar() {
-    const classes = useStyles();
 
     return (
-        <List className={classes.root}>
-            <ListItem>Frontend</ListItem>
-            <ListItem>Backend</ListItem>
-            <ListItem>Hacking</ListItem>
-            <ListItem>Devops</ListItem>
+        <List className="side-nav">
+            <ListItem selected={true} className="side-nav-item">
+                <Typography onClick={handleNavClick} color={props.color} variant="h6">Frontend</Typography>
+            </ListItem>
+            <ListItem className="side-nav-item">
+                <Typography onClick={handleNavClick} color={props.color} variant="h6">Backend</Typography>
+            </ListItem>
+            <ListItem className="side-nav-item">
+                <Typography onClick={handleNavClick} color={props.color} variant="h6">Hacking</Typography>
+            </ListItem>
+            <ListItem className="side-nav-item">
+                <Typography onClick={handleNavClick} color={props.color} variant="h6">DevOps</Typography>
+            </ListItem>
         </List>
     )
 }

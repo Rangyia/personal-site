@@ -46,7 +46,7 @@ export default function HomeView(props) {
                     <Typography className={classes.menuContainer} color={props.color} variant="h1">Hacking</Typography>
                 </Zoom>
                 <Zoom in={checked} style={{ transitionDelay: checked ? '750ms' : '0ms' }}>
-                    <Typography className={classes.menuContainer} color={props.color} variant="h1">Devops</Typography>
+                    <Typography className={classes.menuContainer} color={props.color} variant="h1">DevOps</Typography>
                 </Zoom>
             </div>
         </div>
