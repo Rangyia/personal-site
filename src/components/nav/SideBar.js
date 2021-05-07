@@ -12,8 +12,11 @@ export default function SideBar(props) {
     }
 
     return (
-        <List className="side-nav">
-            <ListItem selected={true} className="side-nav-item">
+        <List className="side-nav" styles={{ borderColor: "red" }}>
+            <ListItem className="side-nav-item">
+                <Typography onClick={handleNavClick} color={props.color} variant="h6">Home</Typography>
+            </ListItem>
+            <ListItem className="side-nav-item"> 
                 <Typography onClick={handleNavClick} color={props.color} variant="h6">Frontend</Typography>
             </ListItem>
             <ListItem className="side-nav-item">

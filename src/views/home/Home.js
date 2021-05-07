@@ -5,6 +5,7 @@ import Zoom from '@material-ui/core/Zoom';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import './Home.css'
 import { Typography } from '@material-ui/core';
+import Parse from '../../utils/MenuParser'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -12,37 +13,35 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
         alignItems: 'center'
     },
-    menuContainer: {
-        display: 'flex',
-        flexDirection: 'column'
-    },
     menuItem: {
-        cursor: 'pointer'
+        cursor: 'pointer',
+        textAlign: 'center'
     }
 }));
 
+
 export default function HomeView(props) {
     const classes = useStyles();
-    const [checked, setChecked] = React.useState(false);
 
-    const handleChange = () => {
-        setChecked((prev) => !prev);
-    };
+    const handleNavClick = (event) => {
+        const view = Parse(event.target.innerText);
+        props.selectView(view);
+    }
 
     return (
         <div className={classes.root}>
             <div className={classes.menuContainer}>
                 <Zoom in={true} style={{margin: 0, padding: 0}}>
-                    <Typography className={classes.menuContainer} color={props.color} variant="h1">Frontend</Typography>
+                    <Typography className={classes.menuItem} color={props.color} variant="h1" onClick={handleNavClick}>Frontend</Typography>
                 </Zoom>
                 <Zoom in={true} style={{ transitionDelay: '250ms' }}>
-                    <Typography className={classes.menuContainer} color={props.color} variant="h1">Backend</Typography>
+                    <Typography className={classes.menuItem} color={props.color} variant="h1" onClick={handleNavClick}>Backend</Typography>
                 </Zoom>
                 <Zoom in={true} style={{ transitionDelay: '500ms' }}>
-                    <Typography className={classes.menuContainer} color={props.color} variant="h1">Hacking</Typography>
+                    <Typography className={classes.menuItem} color={props.color} variant="h1" onClick={handleNavClick}>Hacking</Typography>
                 </Zoom>
                 <Zoom in={true} style={{ transitionDelay: '750ms' }}>
-                    <Typography className={classes.menuContainer} color={props.color} variant="h1">DevOps</Typography>
+                    <Typography className={classes.menuItem} color={props.color} variant="h1" onClick={handleNavClick}>DevOps</Typography>
                 </Zoom>
             </div>
         </div>
