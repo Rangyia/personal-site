@@ -1,11 +1,10 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import Switch from '@material-ui/core/Switch';
 import Zoom from '@material-ui/core/Zoom';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import './Home.css'
+import './styles.css'
 import { Typography } from '@material-ui/core';
-import Parse from '../../utils/MenuParser'
+import Parse from '../../utils/MenuParser';
+import { GitHub, LinkedIn, Twitter, Email } from '@material-ui/icons'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -16,6 +15,13 @@ const useStyles = makeStyles((theme) => ({
     menuItem: {
         cursor: 'pointer',
         textAlign: 'center'
+    },
+    socialIconList: {
+        display: 'flex'
+    },
+    socialIcon: {
+        fontSize: '48px',
+        cursor: 'pointer'
     }
 }));
 
@@ -30,6 +36,20 @@ export default function HomeView(props) {
 
     return (
         <div className={classes.root}>
+            <div className={classes.socialIconList}>
+                <a href="https://github.com/Rangyia">
+                    <GitHub className={classes.socialIcon}/>
+                </a>
+                <a href="https://www.linkedin.com/in/jess-graham-a6a489141/">
+                    <LinkedIn className={classes.socialIcon} />
+                </a>
+                <a href="https://twitter.com/rangyia">
+                    <Twitter className={classes.socialIcon} />
+                </a>
+                <a href="mailto:jess@jessgraham.me">
+                    <Email className={classes.socialIcon} />
+                </a>
+            </div>
             <div className={classes.menuContainer}>
                 <Zoom in={true} style={{margin: 0, padding: 0}}>
                     <Typography className={classes.menuItem} color={props.color} variant="h1" onClick={handleNavClick}>Frontend</Typography>
