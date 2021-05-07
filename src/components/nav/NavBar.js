@@ -14,6 +14,8 @@ import Parse from '../../utils/MenuParser'
 
 const useStyles = makeStyles((theme) => ({
     root: {
+        margin: 0,
+        padding: 0,
         background: 'none',
         border: 'none',
         boxShadow: 'none',
@@ -21,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     rootMenu: {
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-around',
+        justifyContent: 'space-between',
     },
     socialIconList: {
         display: 'flex',
