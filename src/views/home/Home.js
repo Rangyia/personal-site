@@ -36,7 +36,8 @@ export default function HomeView(props) {
     const classes = useStyles();
 
     const handleNavClick = (event) => {
-        const view = Parse(event.target.innerText);
+        const view = Parse.parse(event.target.innerText);
+        console.log(view)
         props.selectView(view);
     }
 

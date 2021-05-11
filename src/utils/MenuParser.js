@@ -1,4 +1,4 @@
-export default function parse(view) {
+exports.parse = function (view) {
     const option = view.toLowerCase();
 
     switch(option) {
@@ -12,6 +12,28 @@ export default function parse(view) {
             return 3;
         case "devops":
             return 4;
+        default:
+            console.error("Invalid view selection")
+    }
+
+    return 0;
+};
+
+exports.parseNumContent = function (num) {
+    const option = num.toLowerCase();
+    console.log(option)
+
+    switch (option) {
+        case "01":
+            return "Home";
+        case "02":
+            return "Frontend";
+        case "03":
+            return "Backend";
+        case "04":
+            return "Hacking";
+        case "05":
+            return "DevOps";
         default:
             console.error("Invalid view selection")
     }

@@ -12,8 +12,16 @@ import './App.css';
 export default function App() {
   const [repos, setRepos] = React.useState([]);
   const [darkMode, setDarkMode] = React.useState(false);
-  const [isHome, setIsHome] = React.useState(true);
   const [view, setView] = React.useState(<HomeView title={"Home"} color={(darkMode ? "primary" : "secondary")} />);
+  const [selectedView, setSelectedView] = React.useState({
+    home: true,
+    frontend: false,
+    backend: false,
+    hacking: false,
+    devops: false
+  });
+
+  
   const [styles, setStyles] = React.useState({
     backgroundColor: "#fff",
   });
@@ -21,24 +29,54 @@ export default function App() {
   const menuSelector = (option) => {
       switch (option) {
         case 0:
-          setIsHome(true);
           setView(<HomeView title={"Home"} color={(darkMode ? "primary" : "secondary")} />)
+          setSelectedView({
+            home: true,
+            frontend: false,
+            backend: false,
+            hacking: false,
+            devops: false
+          });
           break;
         case 1:
-          setIsHome(false);
           setView(<FrontendView repos={repos} title={"Frontend"} color={(darkMode ? "primary" : "secondary")} />)
+          setSelectedView({
+            home: false,
+            frontend: true,
+            backend: false,
+            hacking: false,
+            devops: false
+          });
           break;
         case 2:
-          setIsHome(false);
           setView(<BackendView repos={repos} title={"Backend"} color={(darkMode ? "primary" : "secondary")} />)
+          setSelectedView({
+            home: false,
+            frontend: false,
+            backend: true,
+            hacking: false,
+            devops: false
+          });
           break;
         case 3:
-          setIsHome(false);
           setView(<HackingView repos={repos} title={"Hacking"} color={(darkMode ? "primary" : "secondary")} />)
+          setSelectedView({
+            home: false,
+            frontend: false,
+            backend: false,
+            hacking: true,
+            devops: false
+          });
           break;
         case 4:
-          setIsHome(false);
           setView(<DevopsView repos={repos} title={"DevOps"} color={(darkMode ? "primary" : "secondary")} />)
+          setSelectedView({
+            home: false,
+            frontend: false,
+            backend: false,
+            hacking: false,
+            devops: true
+          });
           break;
         default:
           console.error("Invalid view selection")
@@ -88,9 +126,9 @@ export default function App() {
     <div className="app" style={styles}>
       <div className="container">
         <NavBar color={(darkMode ? "primary" : "secondary")} onToggle={toggleMode} selectView={menuSelector} />
-          {(!isHome ? 
+          {(!selectedView["home"] ? 
             <div className="view">
-              <SideBar color={(darkMode ? "primary" : "secondary")} selectView={menuSelector} />
+              <SideBar selectedView={selectedView} color={(darkMode ? "primary" : "secondary")} selectView={menuSelector} />
               <div className="view-content">
                 {view}
               </div>
