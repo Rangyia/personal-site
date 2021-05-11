@@ -115,7 +115,7 @@ export default function NavBar(props) {
         <AppBar position="static" className={classes.root}>
             <Toolbar className={classes.rootMenu}>
                 <Typography onClick={handleNavClick} color={props.color} variant="h5" className={classes.title}>
-                    Jess Graham
+                    Sample Name
                 </Typography>
                 <div className={classes.menu}>
                     <FormControlLabel
