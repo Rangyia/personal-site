@@ -1,4 +1,4 @@
-# MVVM Personal GitHub Projects Showcase
+# MVVM Personal Website For Displaying GitHub Projects
 
 Node.js, React.js, Material-UI web application for api integrations to your GitHub repository through API
 
