@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         margin: 0,
         padding: 0,
+        height: "70px",
         background: 'none',
         border: 'none',
         boxShadow: 'none',

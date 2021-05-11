@@ -1,9 +1,11 @@
 import React from 'react'
+import RepoCard from '../../components/card/RepoCard'
 
-export default function Frontend() {
+export default function Frontend(props) {
     return (
         <div>
-            <h1>Frontend</h1>
+            <RepoCard />
+            <RepoCard />
         </div>
     )
 }

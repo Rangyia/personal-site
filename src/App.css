@@ -12,13 +12,17 @@ body, * {
 }
 
 .view {
-    height: 80%;
     display: flex;
     align-items: center;
+    margin: 0 auto;
 }
 
 .container {
     height: 100%;
+}
+
+.view-content {
+    width: 100%;
 }
 
 /* Mobile */
@@ -47,9 +51,5 @@ body, * {
         position: relative;
         margin: 0 10%;
         max-width: 90%;
-    }
-
-    .view-content {
-        flex-grow: 1;
     }
 }

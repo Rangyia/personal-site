@@ -1,3 +1,4 @@
+/* Side navigation */
 .side-nav {
     border-style: solid;
     border-width: 0px 0px 0px 3px;
@@ -15,7 +16,7 @@
 
 /* Tablet & Mobile */
 @media (max-width: 960px) {
-    .view-nav {
+    .side-nav {
         display: none;
     }
 }

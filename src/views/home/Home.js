@@ -17,7 +17,13 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'center'
     },
     socialIconList: {
-        display: 'flex'
+        display: 'flex',
+        marginBottom: '20px',
+        paddingLeft: '10px',
+        paddingRight: '10px',
+        borderRadius: '5px',
+        paddingTop: '5px',
+        backgroundColor: '#fff'
     },
     socialIcon: {
         fontSize: '48px',
@@ -38,7 +44,7 @@ export default function HomeView(props) {
         <div className={classes.root}>
             <div className={classes.socialIconList}>
                 <a href="https://github.com/Rangyia">
-                    <GitHub className={classes.socialIcon}/>
+                    <GitHub className={classes.socialIcon} />
                 </a>
                 <a href="https://www.linkedin.com/in/jess-graham-a6a489141/">
                     <LinkedIn className={classes.socialIcon} />
