@@ -97,8 +97,7 @@ export default function App() {
     }
   }
 
-  useEffect(async () => {
-
+  const getRepos = async () => {
     let headers = {
       'Content-Type': 'application/json; charset=utf-8',
       'Accept': 'application/json',
@@ -108,11 +107,12 @@ export default function App() {
       .then(res => {
         let repoData = [];
         for (let i in res.data) {
-          repoData.push ({
+          repoData.push({
             name: res.data[i].name,
             fullName: res.data[i].full_name,
             description: res.data[i].description,
             language: res.data[i].language,
+            link: res.data[i].html_url
           })
         }
         setRepos(repoData);
@@ -120,6 +120,13 @@ export default function App() {
       .catch((err) => {
         console.log("GitHub API Error: ", err);
       });
+  }
+
+  useEffect(() => {
+    async function fetchData() {
+      await getRepos();
+    }
+    fetchData();
   }, [setRepos])
 
   return (

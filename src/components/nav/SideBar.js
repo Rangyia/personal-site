@@ -11,13 +11,6 @@ export default function SideBar(props) {
         props.selectView(view);
     }
 
-    const handleSideBarItem = (content, num) => {
-        if (props.selectedView[content.toLowerCase()])
-            return <Typography onClick={handleNavClick} color={props.color} variant="h6">{content}</Typography>;
-        else
-            return <Typography onClick={handleNavClick} color={props.color} variant="h6">{num}</Typography>
-    }
-
     return (
         <List className="side-nav" styles={{ borderColor: "red" }}>
             <ListItem selected={props.selectedView["home"]} className="side-nav-item">

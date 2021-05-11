@@ -9,8 +9,8 @@ import { grey } from '@material-ui/core/colors';
 import { Sling as Hamburger } from 'hamburger-react'
 import Switch from '@material-ui/core/Switch';
 import Parse from '../../utils/MenuParser'
-// import { GitHub, LinkedIn, Email, Twitter } from '@material-ui/icons';
-
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -71,10 +71,35 @@ const BlackSwitch = withStyles({
 })(Switch);
 
 export default function NavBar(props) {
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [isOpen, setOpen] = React.useState(false)
     const classes = useStyles();
     const [state, setState] = React.useState({
         isDarkMode: false,
     });
+
+    const options = [
+        'Home',
+        'Frontend',
+        'Hacking',
+        'Backend',
+        'DevOps'
+    ]
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = (event) => {
+        setAnchorEl(null);
+        setOpen(false);
+
+        if (options.includes(event.target.innerText)) {
+            const view = Parse.parse(event.target.innerText);
+            props.selectView(view);
+        }
+
+    };
 
     const handleChange = (event) => {
         setState({ ...state, [event.target.name]: event.target.checked });
@@ -82,7 +107,7 @@ export default function NavBar(props) {
     }
 
     const handleNavClick = (event) => {
-        const view = Parse("Home");
+        const view = Parse.parse("Home");
         props.selectView(view);
     }
 
@@ -97,9 +122,22 @@ export default function NavBar(props) {
                         className={classes.toggle}
                         control={<BlackSwitch checked={state.isDarkMode} onChange={handleChange} name="isDarkMode" />}
                     />
-                    <IconButton edge="start" color="inherit" classes={classes.dropdown} aria-label="menu">
-                        <Hamburger color={(props.color === "primary" ? "#fff" : "#0c0c0c")} duration={0.6} />
+                    <IconButton edge="start" color="inherit" classes={classes.dropdown} aria-label="menu" onClick={handleClick}>
+                        <Hamburger toggled={isOpen} toggle={setOpen} color={(props.color === "primary" ? "#fff" : "#0c0c0c")} duration={0.6} />
                     </IconButton>
+                    <Menu
+                        id="simple-menu"
+                        anchorEl={anchorEl}
+                        keepMounted
+                        open={Boolean(anchorEl)}
+                        onClose={handleClose}
+                    >
+                        <MenuItem onClick={handleClose}>Home</MenuItem>
+                        <MenuItem onClick={handleClose}>Frontend</MenuItem>
+                        <MenuItem onClick={handleClose}>Backend</MenuItem>
+                        <MenuItem onClick={handleClose}>Hacking</MenuItem>
+                        <MenuItem onClick={handleClose}>DevOps</MenuItem>
+                    </Menu>
                 </div>
             </Toolbar>
         </AppBar>

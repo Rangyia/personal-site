@@ -37,12 +37,13 @@ export default function HomeView(props) {
 
     const handleNavClick = (event) => {
         const view = Parse.parse(event.target.innerText);
-        console.log(view)
         props.selectView(view);
     }
 
     return (
         <div className={classes.root}>
+            <Typography color={props.color} variant="h4" style={{marginTop: "50px"}}>Full-Stack</Typography>
+            <Typography color={props.color} variant="h4" style={{ marginBottom: "50px"}}>Web Developer</Typography>
             <div className={classes.socialIconList}>
                 <a href="https://github.com/Rangyia">
                     <GitHub className={classes.socialIcon} />
